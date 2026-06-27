@@ -5,7 +5,38 @@ import { updateSiteSettings } from "@/app/actions/admin";
 import { uploadImageToStorage } from "@/utils/supabase/storage";
 import Image from "next/image";
 
-export function SiteSettingsForm({ initialData }: { initialData: any }) {
+interface SiteSettings {
+  logo_url?: string;
+  favicon_url?: string;
+  about_image_url?: string;
+  seo_og_image?: string;
+  hero_image_url?: string;
+  faq_image_url?: string;
+  brochure_url?: string;
+  fees_url?: string;
+  hero_title?: string;
+  hero_subtitle?: string;
+  hero_video_url?: string;
+  about_text?: string;
+  school_address?: string;
+  school_phone?: string;
+  school_email?: string;
+  social_instagram?: string;
+  social_facebook?: string;
+  social_youtube?: string;
+  whatsapp_message?: string;
+  admin_whatsapp_message?: string;
+  map_link?: string;
+  seo_title?: string;
+  seo_description?: string;
+  seo_keywords?: string;
+  stat_experience?: string;
+  stat_graduates?: string;
+  stat_teachers?: string;
+  stat_awards?: string;
+}
+
+export function SiteSettingsForm({ initialData }: { initialData: SiteSettings }) {
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState<{type: 'success' | 'error', text: string} | null>(null);
 
@@ -60,8 +91,9 @@ export function SiteSettingsForm({ initialData }: { initialData: any }) {
       } else {
         setMessage({ type: 'success', text: "Pengaturan berhasil disimpan!" });
       }
-    } catch (error: any) {
-      setMessage({ type: 'error', text: error.message || "Gagal mengunggah gambar" });
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : "Gagal mengunggah gambar";
+      setMessage({ type: 'error', text: message });
     } finally {
       setIsLoading(false);
     }

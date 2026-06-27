@@ -77,7 +77,7 @@ export function Facilities({ data = [] }: { data?: Facility[] }) {
             className="flex gap-6 transition-transform duration-500 ease-in-out"
             style={{ transform: `translateX(calc(-${currentIndex} * (100% / ${Math.min(itemsPerView, data.length)} + 8px)))` }}
           >
-            {data.map((facility, index) => (
+            {data.map((facility) => (
               <div
                 key={facility.id}
                 className="shrink-0 w-full md:w-[calc(33.333%-16px)] bg-surface-container-lowest rounded-3xl border border-outline-variant/30 overflow-hidden hover:shadow-xl transition-all duration-300 group flex flex-col"
