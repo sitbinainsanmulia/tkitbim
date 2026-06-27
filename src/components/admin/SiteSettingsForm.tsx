@@ -82,11 +82,11 @@ export function SiteSettingsForm({ initialData }: { initialData: any }) {
         <div className="grid md:grid-cols-2 gap-6">
           <div className="space-y-2 md:col-span-2 flex items-center gap-6 p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/30">
             {initialData?.logo_url ? (
-              <div className="w-24 h-24 relative rounded-lg overflow-hidden bg-white border border-outline-variant/50 flex-shrink-0">
+              <div className="w-24 h-24 relative rounded-lg overflow-hidden bg-white border border-outline-variant/50 shrink-0">
                 <Image src={initialData.logo_url} alt="Logo" fill className="object-contain p-2" unoptimized />
               </div>
             ) : (
-              <div className="w-24 h-24 rounded-lg bg-surface-container flex items-center justify-center flex-shrink-0">
+              <div className="w-24 h-24 rounded-lg bg-surface-container flex items-center justify-center shrink-0">
                 <span className="material-symbols-outlined text-on-surface-variant">image</span>
               </div>
             )}
@@ -119,7 +119,7 @@ export function SiteSettingsForm({ initialData }: { initialData: any }) {
             <label className="text-sm font-bold text-on-surface">Gambar Hero/Banner (Opsional)</label>
             <div className="flex items-center gap-4">
               {initialData?.hero_image_url && (
-                <div className="w-16 h-16 relative rounded overflow-hidden flex-shrink-0 bg-surface-container border border-outline-variant/30">
+                <div className="w-16 h-16 relative rounded overflow-hidden shrink-0 bg-surface-container border border-outline-variant/30">
                   <Image src={initialData.hero_image_url} alt="Current hero" fill className="object-cover" unoptimized />
                 </div>
               )}
@@ -131,7 +131,7 @@ export function SiteSettingsForm({ initialData }: { initialData: any }) {
             <label className="text-sm font-bold text-on-surface">Gambar Bagian FAQ (Opsional)</label>
             <div className="flex items-center gap-4">
               {initialData?.faq_image_url && (
-                <div className="w-16 h-16 relative rounded overflow-hidden flex-shrink-0 bg-surface-container border border-outline-variant/30">
+                <div className="w-16 h-16 relative rounded overflow-hidden shrink-0 bg-surface-container border border-outline-variant/30">
                   <Image src={initialData.faq_image_url} alt="Current faq image" fill className="object-cover" unoptimized />
                 </div>
               )}

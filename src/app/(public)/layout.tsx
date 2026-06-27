@@ -20,7 +20,7 @@ export default async function PublicLayout({
         href={`https://wa.me/${(settings?.school_phone || "6281234567890").replace(/\D/g, '')}?text=${encodeURIComponent(settings?.whatsapp_message || "Halo Admin TK IT Bina Insan Mulia, saya ingin bertanya tentang informasi pendaftaran.")}`} 
         target="_blank" 
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-[99] bg-[#25D366] text-white w-14 h-14 rounded-full shadow-[0_4px_12px_rgba(37,211,102,0.4)] flex items-center justify-center hover:scale-110 hover:shadow-[0_6px_16px_rgba(37,211,102,0.5)] transition-all duration-300"
+        className="fixed bottom-6 right-6 z-99 bg-[#25D366] text-white w-14 h-14 rounded-full shadow-[0_4px_12px_rgba(37,211,102,0.4)] flex items-center justify-center hover:scale-110 hover:shadow-[0_6px_16px_rgba(37,211,102,0.5)] transition-all duration-300"
         aria-label="Hubungi kami via WhatsApp"
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">

@@ -107,7 +107,7 @@ export function SchedulesList({ initialSchedules }: { initialSchedules: Schedule
                   <tr key={sched.id} className="border-b border-outline-variant/20 hover:bg-surface-container-lowest/50 transition-colors">
                     <td className="p-4">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex-shrink-0 flex items-center justify-center">
+                        <div className="w-10 h-10 rounded-full bg-primary-container text-on-primary-container shrink-0 flex items-center justify-center">
                           <span className="material-symbols-outlined">{sched.icon || 'schedule'}</span>
                         </div>
                         <div>

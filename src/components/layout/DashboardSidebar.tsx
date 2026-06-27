@@ -75,7 +75,7 @@ export function DashboardSidebar() {
 
       {/* Logout Confirmation Modal (SweetAlert Style) */}
       {isLogoutModalOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/40 backdrop-blur-sm p-4 animate-in fade-in duration-200">
+        <div className="fixed inset-0 z-100 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4 animate-in fade-in duration-200">
           <div className="bg-surface-container-lowest rounded-2xl w-full max-w-sm p-6 shadow-2xl animate-in zoom-in-95 duration-200 flex flex-col items-center text-center">
             <div className="w-16 h-16 bg-error-container/30 text-error rounded-full flex items-center justify-center mb-4 border-[3px] border-error-container">
               <span className="material-symbols-outlined text-4xl" style={{ fontVariationSettings: "'FILL' 0" }}>error</span>

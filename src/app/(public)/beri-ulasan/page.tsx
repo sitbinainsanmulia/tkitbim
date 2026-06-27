@@ -30,7 +30,7 @@ export default function BeriUlasanPage() {
       </header>
 
       {/* Main Content */}
-      <main className="flex-grow py-12 px-margin-mobile md:px-margin-desktop">
+      <main className="grow py-12 px-margin-mobile md:px-margin-desktop">
         <div className="max-w-container-max mx-auto">
           <PublicReviewForm />
         </div>

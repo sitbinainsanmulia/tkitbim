@@ -83,7 +83,7 @@ export function Facilities({ data = [] }: { data?: Facility[] }) {
                 className="shrink-0 w-full md:w-[calc(33.333%-16px)] bg-surface-container-lowest rounded-3xl border border-outline-variant/30 overflow-hidden hover:shadow-xl transition-all duration-300 group flex flex-col"
               >
                 <div className="relative h-56 w-full overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent z-10 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300"></div>
                   {facility.image_url ? (
                     <Image
                       src={facility.image_url}

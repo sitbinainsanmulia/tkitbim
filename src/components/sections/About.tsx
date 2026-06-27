@@ -1,7 +1,12 @@
 import React from 'react';
 import Image from 'next/image';
 
-export function About({ data }: { data?: any }) {
+interface SiteSettings {
+  about_text?: string;
+  about_image_url?: string;
+}
+
+export function About({ data }: { data?: SiteSettings }) {
   const aboutText = data?.about_text || "TK IT Bina Insan Mulia memiliki visi membangun pondasi karakter Islami yang kuat dan kecerdasan akademik melalui pendekatan bermain yang menyenangkan. Kami membekali anak dengan nilai-nilai tauhid sejak dini.";
   const aboutImage = data?.about_image_url || "https://lh3.googleusercontent.com/aida-public/AB6AXuAH5SAh09dWJhvFDDoJ6hHX22X4Bzb6d2Kv0t2Vf5FmhPyvmY_kiDn7yjIcWODJXKPQyaRlOkfxaJ92wvgvfbBczlCgon3h72yJ7_1pp9D8Oa7VUufgQAPIj-C5RGk0IM52SGiN3AXENZDOfHTmrSa97Ov_bS9Q7kvbhJJC2JRwpU2JkTQ5ZSr_9LveJ157ASBxftVtfu77KUIKe8jWYXVlfMRkCn6vsfyq579zGP8rHw2t8BseSSxJURnV1yk2aqSsMzWOjHV5bw";
 

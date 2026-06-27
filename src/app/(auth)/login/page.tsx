@@ -61,7 +61,7 @@ function LoginForm() {
       </Link>
 
       {/* Main Content Canvas */}
-      <main className="flex-grow flex items-center justify-center relative overflow-hidden pt-12 pb-16 px-margin-mobile min-h-screen">
+      <main className="grow flex items-center justify-center relative overflow-hidden pt-12 pb-16 px-margin-mobile min-h-screen">
         {/* Organic Background Elements */}
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary-fixed opacity-20 organic-blob -z-10 animate-pulse"></div>
         <div className="absolute bottom-[-5%] right-[-5%] w-[30%] h-[30%] bg-secondary-fixed opacity-30 organic-blob -z-10"></div>

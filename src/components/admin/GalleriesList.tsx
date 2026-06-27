@@ -125,7 +125,7 @@ export function GalleriesList({ initialGalleries }: { initialGalleries: Gallery[
                 </div>
               </div>
               
-              <div className="p-4 flex-grow">
+              <div className="p-4 grow">
                 <p className="text-sm text-on-surface line-clamp-2">
                   {gallery.caption || <span className="italic text-on-surface-variant/50">Tanpa keterangan</span>}
                 </p>
