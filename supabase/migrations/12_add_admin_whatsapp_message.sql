@@ -1,1 +1,0 @@
-ALTER TABLE public.site_settings ADD COLUMN IF NOT EXISTS admin_whatsapp_message text;

@@ -51,11 +51,7 @@ export function About({ data }: { data?: any }) {
                 </div>
               </li>
             </ul>
-            <div className="pt-4">
-              <button className="bg-secondary text-on-secondary px-8 py-3 rounded-full font-label-sm shadow-[0_4px_0_0_var(--color-on-secondary-container)] hover:translate-y-1 hover:shadow-none transition-all flex items-center space-x-2">
-                <span>Selengkapnya</span>
-              </button>
-            </div>
+
           </div>
         </div>
       </div>
