@@ -34,6 +34,8 @@ interface SiteSettings {
   stat_graduates?: string;
   stat_teachers?: string;
   stat_awards?: string;
+  stat_rating?: string;
+  footer_text?: string;
 }
 
 export function SiteSettingsForm({ initialData }: { initialData: SiteSettings }) {
@@ -49,7 +51,7 @@ export function SiteSettingsForm({ initialData }: { initialData: SiteSettings })
       const formData = new FormData(e.currentTarget);
       
       // Helper function untuk memproses file upload
-      const processImage = async (fieldName: string, existingUrl: string) => {
+      const processImage = async (fieldName: string, existingUrl?: string) => {
         const file = formData.get(fieldName) as File;
         if (file && file.size > 0) {
           const url = await uploadImageToStorage(file, "public-assets", "settings");
