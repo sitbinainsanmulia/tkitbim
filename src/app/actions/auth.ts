@@ -3,24 +3,58 @@
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 import { createClient } from '@/utils/supabase/server'
+import { z } from 'zod'
+import { safeError } from '@/utils/validation'
+
+// ==========================================
+// SCHEMAS
+// ==========================================
+
+const loginSchema = z.object({
+  email: z.string().email("Format email tidak valid"),
+  password: z.string().min(1, "Kata sandi wajib diisi"),
+})
+
+const signupSchema = z.object({
+  email: z.string().email("Format email tidak valid"),
+  password: z.string().min(8, "Kata sandi minimal 8 karakter"),
+  nama_anak: z.string().optional(),
+  tempat_lahir: z.string().optional(),
+  tanggal_lahir: z.string().optional(),
+  gender: z.string().optional(),
+  alamat: z.string().optional(),
+  jenjang: z.string().optional(),
+  nama_ortu: z.string().optional(),
+  no_wa: z.string().optional(),
+})
+
+// ==========================================
+// AUTH ACTIONS
+// ==========================================
 
 export async function login(formData: FormData) {
-  const supabase = await createClient()
+  const parsed = loginSchema.safeParse({
+    email: (formData.get('email') as string) || '',
+    password: (formData.get('password') as string) || '',
+  })
 
-  const email = formData.get('email') as string
-  const password = formData.get('password') as string
-
-  if (!email || !password) {
-    return { error: 'Email dan kata sandi wajib diisi' }
+  if (!parsed.success) {
+    return { error: parsed.error.issues[0].message }
   }
 
+  const supabase = await createClient()
+
   const { error } = await supabase.auth.signInWithPassword({
-    email,
-    password,
+    email: parsed.data.email,
+    password: parsed.data.password,
   })
 
   if (error) {
-    return { error: error.message }
+    // Pesan spesifik untuk error login yang umum, tanpa mengekspos detail internal
+    if (error.message.includes('Invalid login credentials')) {
+      return { error: 'Email atau kata sandi salah' }
+    }
+    return safeError(error, 'login')
   }
 
   revalidatePath('/dashboard')
@@ -28,37 +62,40 @@ export async function login(formData: FormData) {
 }
 
 export async function signup(formData: FormData) {
+  const parsed = signupSchema.safeParse({
+    email: (formData.get('email') as string) || '',
+    password: (formData.get('password') as string) || '',
+    nama_anak: formData.get('nama_anak') as string,
+    tempat_lahir: formData.get('tempat_lahir') as string,
+    tanggal_lahir: formData.get('tanggal_lahir') as string,
+    gender: formData.get('gender') as string,
+    alamat: formData.get('alamat') as string,
+    jenjang: formData.get('jenjang') as string,
+    nama_ortu: formData.get('nama_ortu') as string,
+    no_wa: formData.get('no_wa') as string,
+  })
+
+  if (!parsed.success) {
+    return { error: parsed.error.issues[0].message }
+  }
+
   const supabase = await createClient()
 
-  const email = formData.get('email') as string
-  const password = formData.get('password') as string
-  
-  // Registration specific fields
-  const rawData = {
-    nama_anak: formData.get('nama_anak'),
-    tempat_lahir: formData.get('tempat_lahir'),
-    tanggal_lahir: formData.get('tanggal_lahir'),
-    gender: formData.get('gender'),
-    alamat: formData.get('alamat'),
-    jenjang: formData.get('jenjang'),
-    nama_ortu: formData.get('nama_ortu'),
-    no_wa: formData.get('no_wa'),
-  }
-
-  if (!email || !password) {
-    return { error: 'Email dan kata sandi wajib diisi' }
-  }
+  const { email, password, ...metadata } = parsed.data
 
   const { error } = await supabase.auth.signUp({
     email,
     password,
     options: {
-      data: rawData
+      data: metadata
     }
   })
 
   if (error) {
-    return { error: error.message }
+    if (error.message.includes('already registered')) {
+      return { error: 'Email sudah terdaftar' }
+    }
+    return safeError(error, 'signup')
   }
 
   // After signup, we can redirect or show success

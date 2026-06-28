@@ -218,8 +218,16 @@ CREATE POLICY "Public read faqs"            ON public.faqs            FOR SELECT
 CREATE POLICY "Public read schedules"       ON public.schedules       FOR SELECT USING (is_active = true);
 CREATE POLICY "Public read facilities"      ON public.facilities      FOR SELECT USING (true);
 
--- Akses INSERT publik untuk formulir pendaftaran
-CREATE POLICY "Public insert registrations" ON public.registrations FOR INSERT WITH CHECK (true);
+-- Akses INSERT publik untuk formulir pendaftaran (dibatasi)
+CREATE POLICY "Public insert registrations" ON public.registrations
+  FOR INSERT
+  WITH CHECK (
+    status = 'Menunggu'
+    AND full_name IS NOT NULL
+    AND length(trim(full_name)) >= 3
+    AND whatsapp_number IS NOT NULL
+    AND length(trim(whatsapp_number)) >= 10
+  );
 
 -- Akses penuh Admin (authenticated) untuk semua tabel
 CREATE POLICY "Admin manage site_settings"  ON public.site_settings  FOR ALL USING (auth.role() = 'authenticated') WITH CHECK (auth.role() = 'authenticated');
@@ -241,8 +249,8 @@ INSERT INTO storage.buckets (id, name, public)
 VALUES ('public-assets', 'public-assets', true)
 ON CONFLICT (id) DO NOTHING;
 
--- Publik bisa melihat file
-CREATE POLICY "Storage public read"   ON storage.objects FOR SELECT USING (bucket_id = 'public-assets');
+-- Hanya admin yang bisa list file (public bucket sudah bisa diakses via URL)
+CREATE POLICY "Storage admin read"    ON storage.objects FOR SELECT  USING (bucket_id = 'public-assets' AND auth.role() = 'authenticated');
 -- Hanya admin yang bisa upload, update, delete
 CREATE POLICY "Storage admin insert"  ON storage.objects FOR INSERT  WITH CHECK (bucket_id = 'public-assets' AND auth.role() = 'authenticated');
 CREATE POLICY "Storage admin update"  ON storage.objects FOR UPDATE  USING (bucket_id = 'public-assets' AND auth.role() = 'authenticated');
