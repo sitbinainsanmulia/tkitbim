@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { ScheduleForm } from './ScheduleForm';
 import { deleteSchedule, updateSchedule } from '@/app/actions/admin';
 import Swal from 'sweetalert2';
+import { MaterialIcon } from '@/components/ui/MaterialIcon';
 
 interface Schedule {
   id?: string;
@@ -78,7 +79,7 @@ export function SchedulesList({ initialSchedules }: { initialSchedules: Schedule
           onClick={handleAdd}
           className="bg-primary text-on-primary px-5 py-2.5 rounded-full font-label-sm font-bold flex items-center gap-2 hover:bg-primary/90 transition-colors shadow-sm hover:shadow"
         >
-          <span className="material-symbols-outlined text-sm">add</span>
+          <MaterialIcon name="add" className="text-sm" />
           Tambah Jadwal
         </button>
       </div>
@@ -108,7 +109,7 @@ export function SchedulesList({ initialSchedules }: { initialSchedules: Schedule
                     <td className="p-4">
                       <div className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-full bg-primary-container text-on-primary-container shrink-0 flex items-center justify-center">
-                          <span className="material-symbols-outlined">{sched.icon || 'schedule'}</span>
+                          <MaterialIcon name={sched.icon || 'schedule'} />
                         </div>
                         <div>
                           <p className="font-bold text-on-surface">{sched.time_range}</p>
@@ -135,14 +136,14 @@ export function SchedulesList({ initialSchedules }: { initialSchedules: Schedule
                         className="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container hover:bg-secondary hover:text-on-secondary transition-colors inline-flex items-center justify-center"
                         title="Edit"
                       >
-                        <span className="material-symbols-outlined text-sm">edit</span>
+                        <MaterialIcon name="edit" className="text-sm" />
                       </button>
                       <button 
                         onClick={() => handleDelete(sched.id!)}
                         className="w-8 h-8 rounded-full bg-error/10 text-error hover:bg-error hover:text-white transition-colors inline-flex items-center justify-center"
                         title="Hapus"
                       >
-                        <span className="material-symbols-outlined text-sm">delete</span>
+                        <MaterialIcon name="delete" className="text-sm" />
                       </button>
                     </td>
                   </tr>

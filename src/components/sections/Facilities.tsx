@@ -3,6 +3,7 @@
 import React, { useState, useCallback } from 'react';
 import { FadeIn } from '@/components/ui/FadeIn';
 import Image from 'next/image';
+import { MaterialIcon } from '@/components/ui/MaterialIcon';
 
 interface Facility {
   id: string;
@@ -36,7 +37,7 @@ export function Facilities({ data = [] }: { data?: Facility[] }) {
         <div className="flex items-end justify-between mb-12">
           <FadeIn className="max-w-2xl">
             <div className="inline-flex items-center space-x-2 bg-secondary-container/30 px-4 py-1.5 rounded-full text-on-secondary-container text-label-sm font-label-sm mb-6">
-              <span className="material-symbols-outlined text-sm">foundation</span>
+              <MaterialIcon name="foundation" className="text-sm" />
               <span>Fasilitas Kami</span>
             </div>
             <h2 className="font-display-md text-display-md text-primary font-bold mb-4">
@@ -58,7 +59,7 @@ export function Facilities({ data = [] }: { data?: Facility[] }) {
               className="w-11 h-11 rounded-full border-2 border-outline-variant/50 flex items-center justify-center text-on-surface-variant hover:border-primary hover:text-primary hover:bg-primary/5 disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200"
               aria-label="Sebelumnya"
             >
-              <span className="material-symbols-outlined text-xl">arrow_back</span>
+              <MaterialIcon name="arrow_back" className="text-xl" />
             </button>
             <button
               onClick={next}
@@ -66,7 +67,7 @@ export function Facilities({ data = [] }: { data?: Facility[] }) {
               className="w-11 h-11 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary/90 disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200 shadow-sm"
               aria-label="Berikutnya"
             >
-              <span className="material-symbols-outlined text-xl">arrow_forward</span>
+              <MaterialIcon name="arrow_forward" className="text-xl" />
             </button>
           </FadeIn>
         </div>
@@ -90,11 +91,11 @@ export function Facilities({ data = [] }: { data?: Facility[] }) {
                       alt={facility.title}
                       fill
                       className="object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out"
-                      unoptimized
+                      sizes="(max-width: 768px) 100vw, 33vw"
                     />
                   ) : (
                     <div className="w-full h-full bg-surface-container-low flex items-center justify-center">
-                      <span className="material-symbols-outlined text-4xl text-on-surface-variant/50">image</span>
+                      <MaterialIcon name="image" className="text-4xl text-on-surface-variant/50" />
                     </div>
                   )}
                 </div>
@@ -138,7 +139,7 @@ export function Facilities({ data = [] }: { data?: Facility[] }) {
               className="w-10 h-10 rounded-full border-2 border-outline-variant/50 flex items-center justify-center text-on-surface-variant hover:border-primary hover:text-primary disabled:opacity-30 disabled:cursor-not-allowed transition-all"
               aria-label="Sebelumnya"
             >
-              <span className="material-symbols-outlined text-lg">arrow_back</span>
+              <MaterialIcon name="arrow_back" className="text-lg" />
             </button>
             <button
               onClick={next}
@@ -146,7 +147,7 @@ export function Facilities({ data = [] }: { data?: Facility[] }) {
               className="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary/90 disabled:opacity-30 disabled:cursor-not-allowed transition-all shadow-sm"
               aria-label="Berikutnya"
             >
-              <span className="material-symbols-outlined text-lg">arrow_forward</span>
+              <MaterialIcon name="arrow_forward" className="text-lg" />
             </button>
           </div>
         </div>

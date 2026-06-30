@@ -4,6 +4,7 @@ import { useState } from "react";
 import { updateSiteSettings } from "@/app/actions/admin";
 import { uploadImageToStorage } from "@/utils/supabase/storage";
 import Image from "next/image";
+import { MaterialIcon } from '@/components/ui/MaterialIcon';
 
 interface SiteSettings {
   logo_url?: string;
@@ -121,7 +122,7 @@ export function SiteSettingsForm({ initialData }: { initialData: SiteSettings })
               </div>
             ) : (
               <div className="w-24 h-24 rounded-lg bg-surface-container flex items-center justify-center shrink-0">
-                <span className="material-symbols-outlined text-on-surface-variant">image</span>
+                <MaterialIcon name="image" className="text-on-surface-variant" />
               </div>
             )}
             <div className="flex-1 space-y-1">
@@ -241,7 +242,7 @@ export function SiteSettingsForm({ initialData }: { initialData: SiteSettings })
             <label className="text-sm font-bold text-on-surface">File Brosur (PDF/Gambar)</label>
             {initialData?.brochure_url && (
               <div className="mb-2 text-sm text-primary flex items-center gap-2">
-                <span className="material-symbols-outlined">check_circle</span>
+                <MaterialIcon name="check_circle" />
                 Brosur saat ini terunggah
               </div>
             )}
@@ -251,7 +252,7 @@ export function SiteSettingsForm({ initialData }: { initialData: SiteSettings })
             <label className="text-sm font-bold text-on-surface">File Rincian Biaya (PDF/Gambar)</label>
             {initialData?.fees_url && (
               <div className="mb-2 text-sm text-primary flex items-center gap-2">
-                <span className="material-symbols-outlined">check_circle</span>
+                <MaterialIcon name="check_circle" />
                 Biaya saat ini terunggah
               </div>
             )}
@@ -330,9 +331,9 @@ export function SiteSettingsForm({ initialData }: { initialData: SiteSettings })
           className="bg-primary text-on-primary px-8 py-3 rounded-xl font-bold hover:bg-primary/90 transition-colors disabled:opacity-50 flex items-center gap-2"
         >
           {isLoading ? (
-            <span className="material-symbols-outlined animate-spin">refresh</span>
+            <MaterialIcon name="refresh" spin />
           ) : (
-            <span className="material-symbols-outlined">save</span>
+            <MaterialIcon name="save" />
           )}
           {isLoading ? "Menyimpan & Mengunggah..." : "Simpan Pengaturan"}
         </button>

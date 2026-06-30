@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import { MaterialIcon } from '@/components/ui/MaterialIcon';
 
 const defaultTestimonials = [
   {
@@ -76,12 +77,10 @@ export function Testimonials({ data }: { data?: any[] }) {
                 >
                   <div className="bg-surface p-6 rounded-3xl shadow-sm border border-primary/5 text-left w-full hover-lift custom-shadow relative flex flex-col">
                     <div className="flex justify-between items-start mb-3">
-                      <span className="material-symbols-outlined text-secondary-container text-4xl opacity-50">format_quote</span>
+                      <MaterialIcon name="format_quote" className="text-secondary-container text-4xl opacity-50" />
                       <div className="flex gap-0.5 text-yellow-400">
                         {[1,2,3,4,5].map(star => (
-                          <span key={star} className={`material-symbols-outlined text-sm ${star <= testi.rating ? 'text-yellow-400' : 'text-outline-variant/30'}`} style={{ fontVariationSettings: "'FILL' 1" }}>
-                            star
-                          </span>
+                          <MaterialIcon key={star} name="star" className={`text-sm ${star <= testi.rating ? 'text-yellow-400' : 'text-outline-variant/30'}`} />
                         ))}
                       </div>
                     </div>
@@ -106,13 +105,13 @@ export function Testimonials({ data }: { data?: any[] }) {
               onClick={prevSlide}
               className="w-12 h-12 rounded-full bg-surface shadow-sm border border-primary/10 text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
             >
-              <span className="material-symbols-outlined">arrow_back</span>
+              <MaterialIcon name="arrow_back" />
             </button>
             <button 
               onClick={nextSlide}
               className="w-12 h-12 rounded-full bg-surface shadow-sm border border-primary/10 text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
             >
-              <span className="material-symbols-outlined">arrow_forward</span>
+              <MaterialIcon name="arrow_forward" />
             </button>
           </div>
         </div>

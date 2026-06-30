@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { addFacility, updateFacility, deleteFacility } from '@/app/actions/admin';
 import { uploadImageToStorage } from '@/utils/supabase/storage';
 import Swal from 'sweetalert2';
+import { MaterialIcon } from '@/components/ui/MaterialIcon';
 
 interface Facility {
   id?: string;
@@ -83,14 +84,14 @@ export function FacilityForm({
             {initialData ? 'Edit Fasilitas' : 'Tambah Fasilitas'}
           </h2>
           <button onClick={onClose} className="p-2 hover:bg-surface-container rounded-full text-on-surface-variant transition-colors">
-            <span className="material-symbols-outlined">close</span>
+            <MaterialIcon name="close" />
           </button>
         </div>
 
         <div className="p-6 overflow-y-auto">
           {error && (
             <div className="mb-6 p-4 bg-error/10 text-error rounded-xl flex items-start gap-3">
-              <span className="material-symbols-outlined">error</span>
+              <MaterialIcon name="error" />
               <p className="font-body-sm">{error}</p>
             </div>
           )}
@@ -105,7 +106,7 @@ export function FacilityForm({
                       <Image src={previewImage} alt="Preview" width={400} height={300} className="mx-auto rounded-lg object-cover h-48 w-full" unoptimized />
                     </div>
                   ) : (
-                    <span className="material-symbols-outlined text-4xl text-on-surface-variant/50 mb-2">image</span>
+                    <MaterialIcon name="image" className="text-4xl text-on-surface-variant/50 mb-2" />
                   )}
                   <div className="mt-2 flex justify-center text-sm leading-6 text-on-surface-variant">
                     <label htmlFor="file-upload" className="relative cursor-pointer rounded-md bg-transparent font-semibold text-primary focus-within:outline-none focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 hover:text-primary/80">
@@ -163,7 +164,7 @@ export function FacilityForm({
           >
             {loading ? (
               <>
-                <span className="material-symbols-outlined animate-spin text-sm">progress_activity</span>
+                <MaterialIcon name="progress_activity" className="text-sm" spin />
                 Menyimpan...
               </>
             ) : (

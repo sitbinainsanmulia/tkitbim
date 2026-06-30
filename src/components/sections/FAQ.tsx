@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import { MaterialIcon } from '@/components/ui/MaterialIcon';
 
 const defaultFaqs = [
   {
@@ -36,7 +37,7 @@ export function FAQ({ data, settings }: { data?: any[], settings?: any }) {
                 src={imageUrl}
                 width={500}
                 height={500}
-                unoptimized
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
               <div className="absolute -top-6 -left-6 w-20 h-20 bg-secondary-container rounded-full mix-blend-multiply opacity-70 animate-bounce"></div>
             </div>
@@ -51,7 +52,7 @@ export function FAQ({ data, settings }: { data?: any[], settings?: any }) {
                 <details key={idx} className="group bg-surface rounded-2xl shadow-sm border border-primary/5 overflow-hidden" open={idx === 0}>
                   <summary className="flex justify-between items-center font-bold cursor-pointer list-none p-5 text-on-surface">
                     {faq.question}
-                    <span className="transition group-open:rotate-180 material-symbols-outlined text-secondary">expand_more</span>
+                    <MaterialIcon name="expand_more" className="transition group-open:rotate-180 text-secondary" />
                   </summary>
                   <div className="text-on-surface-variant text-sm mt-3 px-5 pb-5">
                     {faq.answer}

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { createAdmin, updateAdmin, deleteAdmin } from "@/app/actions/admin-users";
 import { useRouter } from "next/navigation";
+import { MaterialIcon } from '@/components/ui/MaterialIcon';
 
 export function AdminUsersList({ 
   initialAdmins, 
@@ -93,7 +94,7 @@ export function AdminUsersList({
           onClick={() => handleOpenModal()}
           className="bg-primary text-on-primary px-4 py-2 rounded-xl font-bold hover:bg-primary/90 transition-colors flex items-center gap-2"
         >
-          <span className="material-symbols-outlined text-sm">person_add</span>
+          <MaterialIcon name="person_add" className="text-sm" />
           Tambah Admin
         </button>
       </div>
@@ -143,7 +144,7 @@ export function AdminUsersList({
                         className="p-2 text-primary hover:bg-primary-container rounded-lg transition-colors"
                         title="Edit Admin"
                       >
-                        <span className="material-symbols-outlined text-sm">edit</span>
+                        <MaterialIcon name="edit" className="text-sm" />
                       </button>
                       <button 
                         onClick={() => handleDelete(admin.id)}
@@ -151,7 +152,7 @@ export function AdminUsersList({
                         className={`p-2 rounded-lg transition-colors ${admin.id === currentUserId ? 'text-error hover:bg-error-container' : 'text-outline opacity-50 cursor-not-allowed'}`}
                         title={admin.id === currentUserId ? "Hapus Akun Sendiri" : "Hanya bisa menghapus akun sendiri"}
                       >
-                        <span className="material-symbols-outlined text-sm">delete</span>
+                        <MaterialIcon name="delete" className="text-sm" />
                       </button>
                     </td>
                   </tr>
@@ -171,7 +172,7 @@ export function AdminUsersList({
                 {editingAdmin ? "Edit Admin" : "Tambah Admin Baru"}
               </h3>
               <button onClick={handleCloseModal} className="text-on-surface-variant hover:text-on-surface">
-                <span className="material-symbols-outlined">close</span>
+                <MaterialIcon name="close" />
               </button>
             </div>
             
@@ -231,7 +232,7 @@ export function AdminUsersList({
                   disabled={isLoading}
                   className="px-5 py-2.5 rounded-xl bg-primary text-on-primary font-bold hover:bg-primary/90 transition-colors disabled:opacity-50 flex items-center gap-2"
                 >
-                  {isLoading && <span className="material-symbols-outlined text-sm animate-spin">refresh</span>}
+                  {isLoading && <MaterialIcon name="refresh" className="text-sm" spin />}
                   Simpan
                 </button>
               </div>

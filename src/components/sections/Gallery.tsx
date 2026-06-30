@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { MaterialIcon } from '@/components/ui/MaterialIcon';
 
 const defaultGalleryItems = [
   {
@@ -114,13 +115,13 @@ export function Gallery({ data }: { data?: GalleryItem[] }) {
                 onClick={prevSlide}
                 className="w-12 h-12 rounded-full bg-surface shadow-sm border border-primary/10 text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
               >
-                <span className="material-symbols-outlined">arrow_back</span>
+                <MaterialIcon name="arrow_back" />
               </button>
               <button 
                 onClick={nextSlide}
                 className="w-12 h-12 rounded-full bg-surface shadow-sm border border-primary/10 text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
               >
-                <span className="material-symbols-outlined">arrow_forward</span>
+                <MaterialIcon name="arrow_forward" />
               </button>
             </div>
           )}

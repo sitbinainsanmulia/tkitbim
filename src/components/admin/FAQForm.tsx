@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { createFaq, updateFaq } from '@/app/actions/admin';
+import { MaterialIcon } from '@/components/ui/MaterialIcon';
 
 interface FAQ {
   id?: string;
@@ -61,7 +62,7 @@ export function FAQForm({
           onClick={onClose}
           className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-surface-container hover:bg-error/10 hover:text-error transition-colors"
         >
-          <span className="material-symbols-outlined">close</span>
+          <MaterialIcon name="close" />
         </button>
         
         <h2 className="text-xl font-bold text-primary mb-6">
@@ -98,7 +99,7 @@ export function FAQForm({
               Batal
             </button>
             <button type="submit" disabled={loading} className="px-8 py-3 rounded-full font-label-sm font-bold text-on-primary bg-primary shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all disabled:opacity-50 flex items-center gap-2">
-              {loading && <span className="material-symbols-outlined animate-spin">progress_activity</span>}
+              {loading && <MaterialIcon name="progress_activity" spin />}
               Simpan
             </button>
           </div>

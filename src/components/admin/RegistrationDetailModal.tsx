@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import { MaterialIcon } from '@/components/ui/MaterialIcon';
 
 interface Registration {
   id: string;
@@ -65,7 +66,7 @@ export function RegistrationDetailModal({
           onClick={onClose}
           className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-surface-container hover:bg-error/10 hover:text-error transition-colors"
         >
-          <span className="material-symbols-outlined">close</span>
+          <MaterialIcon name="close" />
         </button>
         
         <div className="flex items-center gap-4 mb-6">
@@ -80,7 +81,7 @@ export function RegistrationDetailModal({
         <div className="space-y-6">
           <div className="bg-surface-container-lowest p-5 rounded-2xl border border-outline-variant/30">
             <h3 className="font-bold text-primary mb-4 flex items-center gap-2">
-              <span className="material-symbols-outlined text-xl">face</span>
+              <MaterialIcon name="face" className="text-xl" />
               Data Calon Siswa
             </h3>
             <div className="grid sm:grid-cols-2 gap-4">
@@ -117,7 +118,7 @@ export function RegistrationDetailModal({
 
           <div className="bg-surface-container-lowest p-5 rounded-2xl border border-outline-variant/30">
             <h3 className="font-bold text-primary mb-4 flex items-center gap-2">
-              <span className="material-symbols-outlined text-xl">family_restroom</span>
+              <MaterialIcon name="family_restroom" className="text-xl" />
               Data Orang Tua
             </h3>
             <div className="grid sm:grid-cols-2 gap-4">
@@ -148,7 +149,7 @@ export function RegistrationDetailModal({
                     rel="noreferrer"
                     className="inline-flex items-center gap-1 text-xs bg-secondary/10 text-secondary hover:bg-secondary/20 px-2 py-1 rounded-full font-bold transition-colors"
                   >
-                    <span className="material-symbols-outlined text-[14px]">chat</span> Chat WA
+                    <MaterialIcon name="chat" className="text-[14px]" /> Chat WA
                   </a>
                 </div>
               </div>

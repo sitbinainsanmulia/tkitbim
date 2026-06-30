@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { submitRegistration } from '@/app/actions/admin';
 import Swal from 'sweetalert2';
+import { MaterialIcon } from '@/components/ui/MaterialIcon';
 
 export function PublicRegistrationForm() {
   const [loading, setLoading] = useState(false);
@@ -66,7 +67,7 @@ export function PublicRegistrationForm() {
         {/* DATA ANAK */}
         <div className="space-y-5">
           <div className="flex items-center gap-3 border-b-2 border-primary/10 pb-2">
-            <span className="material-symbols-outlined text-primary text-2xl">child_care</span>
+            <MaterialIcon name="child_care" className="text-primary text-2xl" />
             <h2 className="text-xl font-bold text-primary">Data Calon Anak Didik</h2>
           </div>
           
@@ -124,7 +125,7 @@ export function PublicRegistrationForm() {
         {/* DATA ORANG TUA */}
         <div className="space-y-5 pt-4">
           <div className="flex items-center gap-3 border-b-2 border-secondary/10 pb-2">
-            <span className="material-symbols-outlined text-secondary text-2xl">family_restroom</span>
+            <MaterialIcon name="family_restroom" className="text-secondary text-2xl" />
             <h2 className="text-xl font-bold text-secondary">Data Orang Tua / Wali</h2>
           </div>
           
@@ -165,9 +166,9 @@ export function PublicRegistrationForm() {
             className="w-full md:w-auto px-12 py-5 rounded-full font-bold text-lg text-on-primary bg-primary shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all disabled:opacity-70 flex items-center justify-center gap-3 mx-auto"
           >
             {loading ? (
-              <span className="material-symbols-outlined animate-spin text-2xl">progress_activity</span>
+              <MaterialIcon name="progress_activity" spin className="text-2xl" />
             ) : (
-              <span className="material-symbols-outlined text-2xl">send</span>
+              <MaterialIcon name="send" className="text-2xl" />
             )}
             {loading ? 'Mengirim Data...' : 'Daftar Sekarang'}
           </button>

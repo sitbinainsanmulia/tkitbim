@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef } from 'react';
+import { MaterialIcon } from '@/components/ui/MaterialIcon';
 
 interface ScheduleItem {
   id?: string;
@@ -56,7 +57,7 @@ export function Schedule({ schedules }: { schedules?: ScheduleItem[] }) {
             className="absolute left-0 top-1/2 -translate-y-1/2 -ml-4 z-10 w-12 h-12 rounded-full bg-surface shadow-lg border border-outline-variant/20 text-on-surface hover:text-primary transition-colors hidden md:flex items-center justify-center opacity-0 group-hover:opacity-100"
             aria-label="Geser ke kiri"
           >
-            <span className="material-symbols-outlined">chevron_left</span>
+            <MaterialIcon name="chevron_left" />
           </button>
           
           <button 
@@ -64,7 +65,7 @@ export function Schedule({ schedules }: { schedules?: ScheduleItem[] }) {
             className="absolute right-0 top-1/2 -translate-y-1/2 -mr-4 z-10 w-12 h-12 rounded-full bg-surface shadow-lg border border-outline-variant/20 text-on-surface hover:text-primary transition-colors hidden md:flex items-center justify-center opacity-0 group-hover:opacity-100"
             aria-label="Geser ke kanan"
           >
-            <span className="material-symbols-outlined">chevron_right</span>
+            <MaterialIcon name="chevron_right" />
           </button>
 
           {/* Slider Container */}
@@ -81,7 +82,7 @@ export function Schedule({ schedules }: { schedules?: ScheduleItem[] }) {
                   className="shrink-0 w-[280px] md:w-[300px] snap-center bg-surface-container-low p-6 rounded-3xl border border-primary/5 text-center hover-lift custom-shadow"
                 >
                   <div className={`w-16 h-16 mx-auto rounded-full ${colorCls.bg} ${colorCls.text} flex items-center justify-center mb-4`}>
-                    <span className="material-symbols-outlined text-3xl">{sched.icon || 'schedule'}</span>
+                    <MaterialIcon name={sched.icon || 'schedule'} className="text-3xl" />
                   </div>
                   <h4 className="font-bold text-primary mb-2 text-xl">{sched.time_range}</h4>
                   <h5 className="font-bold text-on-surface mb-2">{sched.activity}</h5>

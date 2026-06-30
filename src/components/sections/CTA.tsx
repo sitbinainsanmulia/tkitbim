@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { MaterialIcon } from '@/components/ui/MaterialIcon';
 
 export function CTA({ data }: { data?: any }) {
   const phone = data?.school_phone || "0812-3456-7890";
@@ -23,7 +24,7 @@ export function CTA({ data }: { data?: any }) {
               href="/pendaftaran"
               className="bg-secondary text-on-secondary px-8 py-4 rounded-full font-bold shadow-[0_4px_0_0_var(--color-on-secondary-container)] hover:translate-y-1 hover:shadow-none transition-all flex items-center justify-center space-x-2 w-full sm:w-auto"
             >
-              <span className="material-symbols-outlined">app_registration</span>
+              <MaterialIcon name="app_registration" />
               <span>Gabung Sekarang</span>
             </Link>
             
@@ -33,7 +34,7 @@ export function CTA({ data }: { data?: any }) {
               rel="noopener noreferrer"
               className="bg-surface text-primary border-2 border-surface px-8 py-4 rounded-full font-bold hover:bg-surface/90 transition-all flex items-center justify-center space-x-2 w-full sm:w-auto"
             >
-              <span className="material-symbols-outlined">chat</span>
+              <MaterialIcon name="chat" />
               <span>Konsultasi Gratis</span>
             </a>
           </div>

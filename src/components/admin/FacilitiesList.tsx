@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { deleteFacility } from '@/app/actions/admin';
 import Swal from 'sweetalert2';
 import { FacilityForm } from './FacilityForm';
+import { MaterialIcon } from '@/components/ui/MaterialIcon';
 
 interface Facility {
   id: string;
@@ -73,7 +74,7 @@ export function FacilitiesList({ initialData }: { initialData: Facility[] }) {
           onClick={handleAdd}
           className="bg-primary text-white px-6 py-2.5 rounded-full font-label-md flex items-center gap-2 hover:bg-primary/90 transition-colors shadow-sm w-full sm:w-auto justify-center"
         >
-          <span className="material-symbols-outlined text-sm">add</span>
+          <MaterialIcon name="add" className="text-sm" />
           Tambah Fasilitas
         </button>
       </div>
@@ -87,7 +88,7 @@ export function FacilitiesList({ initialData }: { initialData: Facility[] }) {
                   <Image src={facility.image_url} alt={facility.title} fill className="object-cover" unoptimized />
                 ) : (
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="material-symbols-outlined text-4xl text-on-surface-variant/50">image</span>
+                    <MaterialIcon name="image" className="text-4xl text-on-surface-variant/50" />
                   </div>
                 )}
               </div>
@@ -102,14 +103,14 @@ export function FacilitiesList({ initialData }: { initialData: Facility[] }) {
                     className="p-2 text-primary hover:bg-primary/10 rounded-full transition-colors tooltip"
                     title="Edit"
                   >
-                    <span className="material-symbols-outlined text-sm">edit</span>
+                    <MaterialIcon name="edit" className="text-sm" />
                   </button>
                   <button 
                     onClick={() => handleDelete(facility.id)}
                     className="p-2 text-error hover:bg-error/10 rounded-full transition-colors tooltip"
                     title="Hapus"
                   >
-                    <span className="material-symbols-outlined text-sm">delete</span>
+                    <MaterialIcon name="delete" className="text-sm" />
                   </button>
                 </div>
               </div>
@@ -118,7 +119,7 @@ export function FacilitiesList({ initialData }: { initialData: Facility[] }) {
         ) : (
           <div className="col-span-full bg-surface-container-lowest p-12 rounded-2xl border border-outline-variant/30 text-center flex flex-col items-center justify-center">
             <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
-              <span className="material-symbols-outlined text-primary text-3xl">foundation</span>
+              <MaterialIcon name="foundation" className="text-primary text-3xl" />
             </div>
             <h3 className="font-title-lg text-title-lg text-on-surface mb-2 font-bold">Belum ada Fasilitas</h3>
             <p className="font-body-md text-on-surface-variant max-w-md">Mulai tambahkan fasilitas unggulan sekolah Anda agar tampil di halaman depan website.</p>

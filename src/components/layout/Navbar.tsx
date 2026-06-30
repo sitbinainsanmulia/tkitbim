@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
+import { MaterialIcon } from '@/components/ui/MaterialIcon';
 
 export function Navbar({ logoUrl }: { logoUrl?: string }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -58,7 +59,7 @@ export function Navbar({ logoUrl }: { logoUrl?: string }) {
         <Link href="/" className="flex items-center">
           {logoUrl ? (
             <div className="relative w-32 h-10 md:w-40 md:h-12">
-              <Image src={logoUrl} alt="Logo TK IT Bina Insan Mulia" fill className="object-contain" unoptimized priority />
+              <Image src={logoUrl} alt="Logo TK IT Bina Insan Mulia" fill className="object-contain" priority sizes="(max-width: 768px) 128px, 160px" />
             </div>
           ) : (
             <div className="font-headline-md text-headline-md text-primary font-bold dark:text-primary-fixed-dim">
@@ -98,8 +99,9 @@ export function Navbar({ logoUrl }: { logoUrl?: string }) {
           <button 
             className="md:hidden text-primary flex items-center justify-center p-2"
             onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
           >
-            <span className="material-symbols-outlined">{isOpen ? 'close' : 'menu'}</span>
+            <MaterialIcon name={isOpen ? 'close' : 'menu'} />
           </button>
         </div>
       </div>

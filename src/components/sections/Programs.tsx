@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import { MaterialIcon } from '@/components/ui/MaterialIcon';
 
 const defaultPrograms = [
   {
@@ -120,7 +121,7 @@ export function Programs({ data }: { data?: any[] }) {
                   <div className="bg-surface p-8 rounded-4xl shadow-sm hover:shadow-md transition-all border border-primary/5 group h-full text-left relative overflow-hidden flex flex-col max-w-sm mx-auto">
                     <div className={`absolute top-0 right-0 w-24 h-24 ${program.hoverBgClass} rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-500`}></div>
                     <div className={`w-20 h-20 rounded-full ${program.bgClass} ${program.textClass} flex items-center justify-center mb-6 shrink-0`}>
-                      <span className="material-symbols-outlined text-4xl">{program.icon}</span>
+                      <MaterialIcon name={program.icon} className="text-4xl" />
                     </div>
                     <h4 className="font-headline-md text-xl text-primary font-bold mb-4">{program.title}</h4>
                     <p className="text-on-surface-variant font-body-md grow">{program.desc}</p>
@@ -136,13 +137,13 @@ export function Programs({ data }: { data?: any[] }) {
                 onClick={prevSlide}
                 className="w-12 h-12 rounded-full bg-surface shadow-sm border border-primary/10 text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
               >
-                <span className="material-symbols-outlined">arrow_back</span>
+                <MaterialIcon name="arrow_back" />
               </button>
               <button 
                 onClick={nextSlide}
                 className="w-12 h-12 rounded-full bg-surface shadow-sm border border-primary/10 text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
               >
-                <span className="material-symbols-outlined">arrow_forward</span>
+                <MaterialIcon name="arrow_forward" />
               </button>
             </div>
           )}

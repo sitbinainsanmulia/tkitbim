@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { logout } from "@/app/actions/auth";
+import { MaterialIcon } from '@/components/ui/MaterialIcon';
 
 export function DashboardSidebar() {
   const pathname = usePathname();
@@ -33,7 +34,7 @@ export function DashboardSidebar() {
     <>
       <aside className="w-64 bg-surface-container-lowest border-r border-outline-variant/30 hidden md:flex flex-col h-screen sticky top-0">
         <div className="p-6 border-b border-outline-variant/30 flex items-center gap-2">
-          <span className="material-symbols-outlined text-primary text-2xl" style={{ fontVariationSettings: "'FILL' 1" }}>child_care</span>
+          <MaterialIcon name="child_care" className="text-primary text-2xl" />
           <span className="font-headline-md text-[18px] font-bold text-primary">Admin TK IT</span>
         </div>
         
@@ -53,9 +54,7 @@ export function DashboardSidebar() {
                     : "text-on-surface-variant hover:bg-surface-container hover:text-on-surface"
                 }`}
               >
-                <span className="material-symbols-outlined" style={{ fontVariationSettings: isActive ? "'FILL' 1" : "'FILL' 0" }}>
-                  {link.icon}
-                </span>
+                <MaterialIcon name={link.icon} />
                 <span>{link.label}</span>
               </Link>
             );
@@ -67,7 +66,7 @@ export function DashboardSidebar() {
             onClick={() => setIsLogoutModalOpen(true)}
             className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-error hover:bg-error-container/50 transition-colors font-label-sm font-bold"
           >
-            <span className="material-symbols-outlined">logout</span>
+            <MaterialIcon name="logout" />
             <span>Keluar</span>
           </button>
         </div>
@@ -78,7 +77,7 @@ export function DashboardSidebar() {
         <div className="fixed inset-0 z-100 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4 animate-in fade-in duration-200">
           <div className="bg-surface-container-lowest rounded-2xl w-full max-w-sm p-6 shadow-2xl animate-in zoom-in-95 duration-200 flex flex-col items-center text-center">
             <div className="w-16 h-16 bg-error-container/30 text-error rounded-full flex items-center justify-center mb-4 border-[3px] border-error-container">
-              <span className="material-symbols-outlined text-4xl" style={{ fontVariationSettings: "'FILL' 0" }}>error</span>
+              <MaterialIcon name="error" className="text-4xl" />
             </div>
             
             <h3 className="font-headline-sm text-headline-sm font-bold text-on-surface mb-2">Keluar dari Akun?</h3>

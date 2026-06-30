@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { GalleryForm } from './GalleryForm';
 import { deleteGallery } from '@/app/actions/admin';
 import Swal from 'sweetalert2';
+import { MaterialIcon } from '@/components/ui/MaterialIcon';
 
 interface Gallery {
   id?: string;
@@ -73,14 +74,14 @@ export function GalleriesList({ initialGalleries }: { initialGalleries: Gallery[
           onClick={() => setIsFormOpen(true)}
           className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-full flex items-center gap-2 font-bold shadow-lg transition-transform hover:-translate-y-0.5"
         >
-          <span className="material-symbols-outlined">add_photo_alternate</span>
+          <MaterialIcon name="add_photo_alternate" />
           <span className="hidden sm:inline">Tambah Foto</span>
         </button>
       </div>
 
       {galleries.length === 0 ? (
         <div className="bg-surface rounded-3xl p-12 text-center border border-outline-variant/30">
-          <span className="material-symbols-outlined text-6xl text-outline-variant/50 mb-4 block">photo_library</span>
+          <MaterialIcon name="photo_library" className="text-6xl text-outline-variant/50 mb-4 block" />
           <h3 className="text-lg font-bold text-on-surface mb-2">Belum ada foto galeri</h3>
           <p className="text-on-surface-variant">Tambahkan foto dokumentasi kegiatan untuk memperindah website sekolah Anda.</p>
         </div>
@@ -113,14 +114,14 @@ export function GalleriesList({ initialGalleries }: { initialGalleries: Gallery[
                     className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-primary hover:scale-110 shadow-lg transition-transform"
                     title="Edit Foto"
                   >
-                    <span className="material-symbols-outlined">edit</span>
+                    <MaterialIcon name="edit" />
                   </button>
                   <button 
                     onClick={() => gallery.id && handleDelete(gallery.id)}
                     className="w-12 h-12 bg-error rounded-full flex items-center justify-center text-white hover:scale-110 shadow-lg transition-transform"
                     title="Hapus Foto"
                   >
-                    <span className="material-symbols-outlined">delete</span>
+                    <MaterialIcon name="delete" />
                   </button>
                 </div>
               </div>

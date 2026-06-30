@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { TeacherForm } from './TeacherForm';
 import { deleteTeacher, toggleTeacherStatus } from '@/app/actions/admin';
 import Swal from 'sweetalert2';
+import { MaterialIcon } from '@/components/ui/MaterialIcon';
 
 interface Teacher {
   id?: string;
@@ -69,7 +70,7 @@ export function TeachersList({ initialTeachers }: { initialTeachers: Teacher[] }
           onClick={handleAdd}
           className="bg-primary text-on-primary px-5 py-2.5 rounded-full font-label-sm font-bold flex items-center gap-2 hover:bg-primary/90 transition-colors shadow-sm hover:shadow"
         >
-          <span className="material-symbols-outlined text-sm">add</span>
+          <MaterialIcon name="add" className="text-sm" />
           Tambah Guru
         </button>
       </div>
@@ -103,7 +104,7 @@ export function TeachersList({ initialTeachers }: { initialTeachers: Teacher[] }
                           <Image src={teacher.image_url} alt={teacher.name} fill className="object-cover" unoptimized />
                         ) : (
                           <div className="w-full h-full flex items-center justify-center text-on-surface-variant">
-                            <span className="material-symbols-outlined">person</span>
+                            <MaterialIcon name="person" />
                           </div>
                         )}
                       </div>
@@ -126,14 +127,14 @@ export function TeachersList({ initialTeachers }: { initialTeachers: Teacher[] }
                         className="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container hover:bg-secondary hover:text-on-secondary transition-colors inline-flex items-center justify-center"
                         title="Edit"
                       >
-                        <span className="material-symbols-outlined text-sm">edit</span>
+                        <MaterialIcon name="edit" className="text-sm" />
                       </button>
                       <button 
                         onClick={() => handleDelete(teacher.id!)}
                         className="w-8 h-8 rounded-full bg-error/10 text-error hover:bg-error hover:text-white transition-colors inline-flex items-center justify-center"
                         title="Hapus"
                       >
-                        <span className="material-symbols-outlined text-sm">delete</span>
+                        <MaterialIcon name="delete" className="text-sm" />
                       </button>
                     </td>
                   </tr>

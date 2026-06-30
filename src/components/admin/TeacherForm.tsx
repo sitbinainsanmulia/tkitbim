@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { createTeacher, updateTeacher } from '@/app/actions/admin';
 import { uploadImageToStorage } from '@/utils/supabase/storage';
+import { MaterialIcon } from '@/components/ui/MaterialIcon';
 
 interface Teacher {
   id?: string;
@@ -83,7 +84,7 @@ export function TeacherForm({
           onClick={onClose}
           className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-surface-container hover:bg-error/10 hover:text-error transition-colors"
         >
-          <span className="material-symbols-outlined">close</span>
+          <MaterialIcon name="close" />
         </button>
         
         <h2 className="text-xl font-bold text-primary mb-6">
@@ -104,7 +105,7 @@ export function TeacherForm({
                 <Image src={previewImage} alt="Preview" fill className="object-cover" unoptimized />
               ) : (
                 <div className="w-full h-full flex items-center justify-center text-on-surface-variant">
-                  <span className="material-symbols-outlined text-4xl">person</span>
+                  <MaterialIcon name="person" className="text-4xl" />
                 </div>
               )}
             </div>
@@ -151,7 +152,7 @@ export function TeacherForm({
               Batal
             </button>
             <button type="submit" disabled={loading} className="px-8 py-3 rounded-full font-label-sm font-bold text-on-primary bg-primary shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all disabled:opacity-50 flex items-center gap-2">
-              {loading && <span className="material-symbols-outlined animate-spin">progress_activity</span>}
+              {loading && <MaterialIcon name="progress_activity" spin />}
               Simpan
             </button>
           </div>

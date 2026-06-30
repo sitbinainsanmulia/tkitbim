@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { FAQForm } from './FAQForm';
 import { deleteFaq, toggleFaqStatus } from '@/app/actions/admin';
 import Swal from 'sweetalert2';
+import { MaterialIcon } from '@/components/ui/MaterialIcon';
 
 interface FAQ {
   id?: string;
@@ -111,7 +112,7 @@ export function FAQList({ initialFaqs }: { initialFaqs: FAQ[] }) {
           onClick={() => setIsFormOpen(true)}
           className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-full flex items-center gap-2 font-bold shadow-lg transition-transform hover:-translate-y-0.5"
         >
-          <span className="material-symbols-outlined">add_circle</span>
+          <MaterialIcon name="add_circle" />
           <span className="hidden sm:inline">Tambah FAQ</span>
         </button>
       </div>
@@ -161,9 +162,7 @@ export function FAQList({ initialFaqs }: { initialFaqs: FAQ[] }) {
                         }`}
                         title="Klik untuk mengubah status"
                       >
-                        <span className="material-symbols-outlined text-[14px]">
-                          {faq.is_active ? 'visibility' : 'visibility_off'}
-                        </span>
+                        <MaterialIcon name={faq.is_active ? 'visibility' : 'visibility_off'} className="text-[14px]" />
                         {faq.is_active ? 'Aktif' : 'Nonaktif'}
                       </button>
                     </td>
@@ -174,14 +173,14 @@ export function FAQList({ initialFaqs }: { initialFaqs: FAQ[] }) {
                           className="w-8 h-8 rounded-full bg-surface-container hover:bg-primary/10 hover:text-primary flex items-center justify-center transition-colors text-on-surface-variant"
                           title="Edit"
                         >
-                          <span className="material-symbols-outlined text-[18px]">edit</span>
+                          <MaterialIcon name="edit" className="text-[18px]" />
                         </button>
                         <button 
                           onClick={() => faq.id && handleDelete(faq.id)}
                           className="w-8 h-8 rounded-full bg-surface-container hover:bg-error/10 hover:text-error flex items-center justify-center transition-colors text-on-surface-variant"
                           title="Hapus"
                         >
-                          <span className="material-symbols-outlined text-[18px]">delete</span>
+                          <MaterialIcon name="delete" className="text-[18px]" />
                         </button>
                       </div>
                     </td>

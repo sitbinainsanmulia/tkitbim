@@ -70,7 +70,8 @@ export default function RootLayout({
       className={cn("h-full", "scroll-smooth", quicksand.variable, plusJakartaSans.variable, "font-sans", geist.variable)}
     >
       <head>
-        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+        <link rel="preconnect" href="https://kayfmfpxzosqigpqfwqy.supabase.co" />
+        <link rel="preconnect" href="https://images.unsplash.com" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

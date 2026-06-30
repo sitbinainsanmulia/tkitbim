@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { RegistrationDetailModal } from './RegistrationDetailModal';
 import { deleteRegistration, updateRegistrationStatus } from '@/app/actions/admin';
 import Swal from 'sweetalert2';
+import { MaterialIcon } from '@/components/ui/MaterialIcon';
 
 interface Registration {
   id: string;
@@ -154,7 +155,7 @@ export function RegistrationsList({ initialRegistrations, settings }: { initialR
                     <td className="p-4">
                       <div className="text-sm text-on-surface font-bold">{reg.father_name || reg.mother_name || '-'}</div>
                       <div className="text-xs font-mono mt-1 text-secondary flex items-center gap-1">
-                        <span className="material-symbols-outlined text-[12px]">phone_iphone</span>
+                        <MaterialIcon name="phone_iphone" className="text-[12px]" />
                         {reg.whatsapp_number}
                       </div>
                     </td>
@@ -176,14 +177,14 @@ export function RegistrationsList({ initialRegistrations, settings }: { initialR
                           className="w-8 h-8 rounded-full bg-surface-container hover:bg-primary/10 hover:text-primary flex items-center justify-center transition-colors text-on-surface-variant"
                           title="Lihat Detail"
                         >
-                          <span className="material-symbols-outlined text-[18px]">visibility</span>
+                          <MaterialIcon name="visibility" className="text-[18px]" />
                         </button>
                         <button 
                           onClick={() => handleDelete(reg.id, reg.full_name)}
                           className="w-8 h-8 rounded-full bg-surface-container hover:bg-error/10 hover:text-error flex items-center justify-center transition-colors text-on-surface-variant"
                           title="Hapus"
                         >
-                          <span className="material-symbols-outlined text-[18px]">delete</span>
+                          <MaterialIcon name="delete" className="text-[18px]" />
                         </button>
                       </div>
                     </td>

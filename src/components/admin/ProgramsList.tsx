@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { ProgramForm } from './ProgramForm';
 import { deleteProgram, toggleProgramStatus } from '@/app/actions/admin';
 import Swal from 'sweetalert2';
+import { MaterialIcon } from '@/components/ui/MaterialIcon';
 
 interface Program {
   id?: string;
@@ -69,7 +70,7 @@ export function ProgramsList({ initialPrograms }: { initialPrograms: Program[] }
           onClick={handleAdd}
           className="bg-primary text-on-primary px-5 py-2.5 rounded-full font-label-sm font-bold flex items-center gap-2 hover:bg-primary/90 transition-colors shadow-sm hover:shadow"
         >
-          <span className="material-symbols-outlined text-sm">add</span>
+          <MaterialIcon name="add" className="text-sm" />
           Tambah Program
         </button>
       </div>
@@ -99,7 +100,7 @@ export function ProgramsList({ initialPrograms }: { initialPrograms: Program[] }
                   <tr key={prog.id} className="border-b border-outline-variant/20 hover:bg-surface-container-lowest/50 transition-colors">
                     <td className="p-4">
                       <div className="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center">
-                        <span className="material-symbols-outlined">{prog.icon}</span>
+                        <MaterialIcon name={prog.icon} />
                       </div>
                     </td>
                     <td className="p-4 font-bold text-on-surface">{prog.title}</td>
@@ -120,14 +121,14 @@ export function ProgramsList({ initialPrograms }: { initialPrograms: Program[] }
                         className="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container hover:bg-secondary hover:text-on-secondary transition-colors inline-flex items-center justify-center"
                         title="Edit"
                       >
-                        <span className="material-symbols-outlined text-sm">edit</span>
+                        <MaterialIcon name="edit" className="text-sm" />
                       </button>
                       <button 
                         onClick={() => handleDelete(prog.id!)}
                         className="w-8 h-8 rounded-full bg-error/10 text-error hover:bg-error hover:text-white transition-colors inline-flex items-center justify-center"
                         title="Hapus"
                       >
-                        <span className="material-symbols-outlined text-sm">delete</span>
+                        <MaterialIcon name="delete" className="text-sm" />
                       </button>
                     </td>
                   </tr>

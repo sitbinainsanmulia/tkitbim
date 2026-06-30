@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { TestimonialForm } from './TestimonialForm';
 import { deleteTestimonial, toggleTestimonialStatus } from '@/app/actions/admin';
 import Swal from 'sweetalert2';
+import { MaterialIcon } from '@/components/ui/MaterialIcon';
 
 interface Testimonial {
   id?: string;
@@ -139,14 +140,14 @@ export function TestimonialsList({ initialTestimonials }: { initialTestimonials:
             onClick={handleCopyLink}
             className="bg-surface hover:bg-surface-container-high text-primary border border-primary/20 px-6 py-3 rounded-full flex items-center gap-2 font-bold shadow-sm transition-colors"
           >
-            <span className="material-symbols-outlined">share</span>
+            <MaterialIcon name="share" />
             <span className="hidden sm:inline">Share Link</span>
           </button>
           <button 
             onClick={() => setIsFormOpen(true)}
             className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-full flex items-center gap-2 font-bold shadow-lg transition-transform hover:-translate-y-0.5"
           >
-            <span className="material-symbols-outlined">add_comment</span>
+            <MaterialIcon name="add_comment" />
             <span className="hidden sm:inline">Tambah Testimoni</span>
           </button>
         </div>
@@ -201,9 +202,7 @@ export function TestimonialsList({ initialTestimonials }: { initialTestimonials:
                         }`}
                         title="Klik untuk mengubah status"
                       >
-                        <span className="material-symbols-outlined text-[14px]">
-                          {testi.is_active ? 'visibility' : 'visibility_off'}
-                        </span>
+                        <MaterialIcon name={testi.is_active ? 'visibility' : 'visibility_off'} className="text-[14px]" />
                         {testi.is_active ? 'Ditampilkan' : 'Nonaktif'}
                       </button>
                     </td>
@@ -214,14 +213,14 @@ export function TestimonialsList({ initialTestimonials }: { initialTestimonials:
                           className="w-8 h-8 rounded-full bg-surface-container hover:bg-primary/10 hover:text-primary flex items-center justify-center transition-colors text-on-surface-variant"
                           title="Edit"
                         >
-                          <span className="material-symbols-outlined text-[18px]">edit</span>
+                          <MaterialIcon name="edit" className="text-[18px]" />
                         </button>
                         <button 
                           onClick={() => testi.id && handleDelete(testi.id)}
                           className="w-8 h-8 rounded-full bg-surface-container hover:bg-error/10 hover:text-error flex items-center justify-center transition-colors text-on-surface-variant"
                           title="Hapus"
                         >
-                          <span className="material-symbols-outlined text-[18px]">delete</span>
+                          <MaterialIcon name="delete" className="text-[18px]" />
                         </button>
                       </div>
                     </td>
